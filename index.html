@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Z-SAMA</title>
+<meta name="description" content="Site officiel de Z-SAMA : YouTube, TikTok, Instagram, Twitch et Discord.">
+<meta name="theme-color" content="#CA1C30">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-box">
+    <div class="tag">SYSTÈME CRÉATEUR // V1.0</div>
+    <div class="loader-brand" id="loaderBrand">Z-SAMA</div>
+    <div class="loader-bar"><i id="loaderBar"></i></div>
+    <div class="tag">CHARGEMENT <span id="loaderPct">0</span>%</div>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="#hero" aria-label="Accueil"><b id="logoMark">Z</b><span id="logoName">Z-SAMA</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Navigation principale"></nav>
+    <span class="pct" id="scrollPct" aria-hidden="true">0%</span>
+    <a class="btn" href="#contact">Contact</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="navLinks" aria-label="Ouvrir le menu">☰</button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="notice" id="notice" hidden>
+      <span>▲ DONNÉES D'EXEMPLE // remplace pseudo, liens et chiffres dans config.js</span>
+      <button type="button" id="noticeClose">MASQUER</button>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <div class="tag hero-in">SYSTÈME CRÉATEUR // V1.0 // EN LIGNE</div>
+        <h1 class="hero-in d2" id="heroTitle"></h1>
+        <p class="lead hero-in d2" id="heroLead"></p>
+        <div class="cta-row hero-in d2">
+          <a class="btn" href="#videos">Voir les vidéos</a>
+          <a class="btn ghost" href="#plateformes">Me suivre</a>
+        </div>
+        <div class="chips-row hero-in d2" id="heroChips"></div>
+      </div>
+      <aside class="panel hud hero-in d2" aria-label="Statut de la chaîne">
+        <div class="hud-top"><span class="tag">STATUT // CHAÎNE</span><span class="live"><i></i>EN LIGNE</span></div>
+        <div>
+          <div class="tag muted" style="color:var(--muted)">PROCHAIN CONTENU DANS</div>
+          <div class="count" id="count" aria-live="off">--</div>
+          <div class="next-title" id="nextTitle"></div>
+        </div>
+        <div class="hud-rows" id="hudRows"></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="plateformes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">SECTION // 01.0 | PLATEFORMES</div>
+      <h2>Un univers, cinq écrans</h2>
+      <p>Chaque plateforme a son format. Choisis celle où tu veux me retrouver, ou suis-les toutes pour ne rien rater.</p>
+    </div>
+    <div class="grid g-plat" id="platGrid"></div>
+  </div>
+</section>
+
+<section class="band" id="videos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">SECTION // 02.0 | DERNIÈRES SORTIES</div>
+      <h2>Le dernier contenu</h2>
+      <p>Vidéos longues, shorts et reels. Filtre par plateforme et clique pour regarder.</p>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filtrer par plateforme"></div>
+    <div class="grid g-vid" id="vidGrid"></div>
+  </div>
+</section>
+
+<section class="band alt" id="contenu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">SECTION // 03.0 | CE QUE TU TROUVES ICI</div>
+      <h2>Trois formats, une méthode</h2>
+      <p>Du contenu long pour comprendre, du court pour s'amuser, du direct pour échanger.</p>
+    </div>
+    <div class="grid g-pil" id="pilGrid"></div>
+  </div>
+</section>
+
+<section class="band" id="apropos">
+  <div class="wrap about">
+    <div class="panel avatar"><div><strong id="avInit">V</strong><span>[ TA PHOTO ICI ]</span></div></div>
+    <div>
+      <div class="tag">SECTION // 04.0 | QUI EST DERRIÈRE L'ÉCRAN</div>
+      <h2 id="aboutTitle"></h2>
+      <div id="aboutText"></div>
+      <div class="badges" id="badges"></div>
+      <div class="aud" id="aud"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="planning">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">SECTION // 05.0 | PLANNING</div>
+      <h2>Calendrier de la semaine</h2>
+      <p>Les sorties régulières. Le prochain créneau est calculé en direct dans le panneau du haut de page.</p>
+    </div>
+    <div class="sched" id="sched"></div>
+    <div class="tz" id="tz"></div>
+  </div>
+</section>
+
+<section class="band" id="collab">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">SECTION // 06.0 | COLLABORATIONS</div>
+      <h2>Travaillons ensemble</h2>
+      <p>Une marque, un jeu, un événement ? Voici les formats de collaboration possibles.</p>
+    </div>
+    <div class="grid g-col" id="colGrid"></div>
+    <div class="panel cta-band">
+      <div><h3>Prêt à passer le palier ?</h3><p>Écris-moi avec ton projet, ton budget et tes dates. Réponse sous quelques jours.</p></div>
+      <a class="btn" href="#contact">Engager la collab</a>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="avis">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">SECTION // 07.0 | COMMUNAUTÉ</div>
+      <h2>Ce que dit le chat</h2>
+      <p>Des retours de la communauté. Remplace les exemples par tes vrais commentaires.</p>
+    </div>
+    <div class="grid g-com" id="comGrid"></div>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">SECTION // 08.0 | FAQ</div>
+      <h2>Questions fréquentes</h2>
+    </div>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+<section class="band alt" id="contact">
+  <div class="wrap contact">
+    <div>
+      <div class="tag">SECTION // 09.0 | CONTACT</div>
+      <h2 style="font-size:clamp(1.9rem,4.4vw,3.1rem);margin-top:.9rem">Envoie un signal</h2>
+      <p class="muted" style="margin-top:1rem;max-width:56ch">Pour une collaboration, une question ou un kit média, écris à cette adresse. Pour une réponse rapide, passe par Discord ou un message privé.</p>
+      <div class="mailbox"><code id="mail"></code><button class="btn" type="button" id="copyMail">Copier</button></div>
+      <div class="copied" id="copied" role="status"></div>
+    </div>
+    <div class="socials" id="socials"></div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <span id="copy"></span>
+    <span>SYSTÈME CRÉATEUR // V1.0</span>
+    <a href="#hero">RETOUR EN HAUT ↑</a>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
